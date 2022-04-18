@@ -12,4 +12,10 @@ defmodule Counter do
     {:reply, "result count up to #{inspect state}", state}
   end
 
+  def handle_call(:down, from, state) do
+    IO.puts "--- handle_call(:down, #{inspect from}, #{inspect state}) called ---"
+    state = state - 1
+    {:reply, "result count down to #{inspect state}", state}
+  end
+
 end
