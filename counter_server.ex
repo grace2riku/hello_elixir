@@ -18,4 +18,18 @@ defmodule Counter do
     {:reply, "result count down to #{inspect state}", state}
   end
 
+  def handle_cast(:up, state) do
+    IO.puts "--- handle_cast(:up, #{inspect state}) called ---"
+    state = state + 1
+    IO.puts "--- state -> #{state} ---"
+    {:noreply, state}
+  end
+
+  def handle_cast(:down, state) do
+    IO.puts "--- handle_cast(:down, #{inspect state}) called ---"
+    state = state - 1
+    IO.puts "--- state -> #{state} ---"
+    {:noreply, state}
+  end
+
 end
